@@ -16,5 +16,10 @@ namespace Programmering_Dam_Spil
         {
             InitializeComponent();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
