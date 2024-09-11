@@ -15,11 +15,13 @@ namespace Programmering_Dam_Spil
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
+            
 
         }
+
+        
+        
+
+        
     }
 }
