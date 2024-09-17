@@ -18,6 +18,7 @@ namespace Programmering_Dam_Spil
         public Form1()
         {
             InitializeComponent();
+            this.Size = new Size(800, 600);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -59,10 +60,7 @@ namespace Programmering_Dam_Spil
 
         private void button1_Click(object sender, EventArgs e)
         {
-
             placerBrikker();
-
-
         }
 
         
