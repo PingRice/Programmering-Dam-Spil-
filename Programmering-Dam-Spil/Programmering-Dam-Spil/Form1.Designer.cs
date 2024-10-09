@@ -63,6 +63,10 @@
             this.pictureBox31 = new System.Windows.Forms.PictureBox();
             this.pictureBox32 = new System.Windows.Forms.PictureBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtPicValgt = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox0)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -121,13 +125,13 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(884, 45);
+            this.button1.Location = new System.Drawing.Point(895, 27);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(108, 45);
+            this.button1.Size = new System.Drawing.Size(137, 52);
             this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
+            this.button1.Text = "Placer brikker";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            
             // 
             // pictureBox2
             // 
@@ -478,11 +482,50 @@
             this.textBox1.Size = new System.Drawing.Size(203, 176);
             this.textBox1.TabIndex = 35;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(891, 250);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(107, 20);
+            this.label1.TabIndex = 36;
+            this.label1.Text = "Array: Brikpos";
+            // 
+            // txtPicValgt
+            // 
+            this.txtPicValgt.Location = new System.Drawing.Point(895, 134);
+            this.txtPicValgt.Name = "txtPicValgt";
+            this.txtPicValgt.Size = new System.Drawing.Size(100, 26);
+            this.txtPicValgt.TabIndex = 37;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(1001, 127);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(106, 54);
+            this.button2.TabIndex = 39;
+            this.button2.Text = "Print int picValgt";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(905, 111);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(87, 20);
+            this.label2.TabIndex = 38;
+            this.label2.Text = "int picValgt";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1178, 814);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtPicValgt);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.pictureBox32);
             this.Controls.Add(this.pictureBox31);
@@ -596,6 +639,10 @@
         private System.Windows.Forms.PictureBox pictureBox31;
         private System.Windows.Forms.PictureBox pictureBox32;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtPicValgt;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label2;
     }
 }
 
