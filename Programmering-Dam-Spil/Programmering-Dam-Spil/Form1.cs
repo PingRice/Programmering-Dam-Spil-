@@ -16,8 +16,9 @@ namespace Programmering_Dam_Spil
 
         PictureBox[] PictureBoxes = new PictureBox[33];
         int[] BrikPos = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}; //0: tom | 1: hvid | 2: sort | 3: hvid HL | 4: sort HL | 5: hvid konge | 6: sort konge | 7: hvid konge HL | 8: sort konge HL
-        int[] BoardSides = {5,13,21,29,4,12,20,28 }; 
-        
+        int[] BoardSides = {5,13,21,29,4,12,20,28 };
+        int[] LigeRækker = { 5, 6, 7, 8, 13, 14, 15, 16, 21, 22, 23, 24, 29, 30, 31, 32 };
+        int[] UligeRækker = { 1, 2, 3, 4, 9, 10, 11, 12, 17, 18, 19, 20, 25, 26, 27, 28 };
         bool Highlighted;
         int picValgt; //Husker den tallet på den picturebox der er highlighted. 
         public Form1()
@@ -75,8 +76,8 @@ namespace Programmering_Dam_Spil
             if (BrikPos[nr] == 0 && Highlighted == true)
             {
                 Movement(nr);
-            }
-            if (BrikPos[nr] == 1 && Highlighted == false)
+            } 
+            else if (BrikPos[nr] == 1 && Highlighted == false)
             {
                 BrikPos[nr] += 2;
                 PictureBoxes[nr].Image = hlWhiteCircle;
@@ -145,32 +146,7 @@ namespace Programmering_Dam_Spil
             //FLYTTE IKKE-SIDEBRIKKER
             //ULIGE RÆKKER
             //Flytte hvid sidebrik til feltet den står på plus 4 eller plus 5.
-            if (!BoardSides.Contains(picValgt) && BrikPos[picValgt] == 3)
-            {
-                if (nr == picValgt + 4 && BrikPos[nr] == 0 || nr == picValgt + 5 && BrikPos[nr] == 0)
-                {
-                    PictureBoxes[picValgt].Image = null;
-                    BrikPos[picValgt] = 0;
-                    PictureBoxes[nr].Image = whiteCircle;
-                    BrikPos[nr] = 1;
-                    Highlighted = false;
-                }
-            }
-            //Flytte sort sidebrik til feltet den står på minus 4 eller minus 5.
-            if (!BoardSides.Contains(picValgt) && BrikPos[picValgt] == 4)
-            {
-                if (nr == picValgt - 4 && BrikPos[nr] == 0 || nr == picValgt - 5 && BrikPos[nr] == 0)
-                {
-                    PictureBoxes[picValgt].Image = null;
-                    BrikPos[picValgt] = 0;
-                    PictureBoxes[nr].Image = blackCircle;
-                    BrikPos[nr] = 2;
-                    Highlighted = false;
-                }
-            }
-            //LIGE RÆKKER 
-            //Flytte hvid sidebrik til feltet den står på plus 3 eller plus 4.
-            if (!BoardSides.Contains(picValgt) && BrikPos[picValgt] == 3)
+            if (UligeRækker.Contains(picValgt) && BrikPos[picValgt] == 3)
             {
                 if (nr == picValgt + 4 && BrikPos[nr] == 0 || nr == picValgt + 5 && BrikPos[nr] == 0)
                 {
@@ -182,7 +158,32 @@ namespace Programmering_Dam_Spil
                 }
             }
             //Flytte sort sidebrik til feltet den står på minus 3 eller minus 4.
-            if (!BoardSides.Contains(picValgt) && BrikPos[picValgt] == 4)
+            if (UligeRækker.Contains(picValgt) && BrikPos[picValgt] == 4)
+            {
+                if (nr == picValgt - 3 && BrikPos[nr] == 0 || nr == picValgt - 4 && BrikPos[nr] == 0)
+                {
+                    PictureBoxes[picValgt].Image = null;
+                    BrikPos[picValgt] = 0;
+                    PictureBoxes[nr].Image = blackCircle;
+                    BrikPos[nr] = 2;
+                    Highlighted = false;
+                }
+            }
+            //LIGE RÆKKER 
+            //Flytte hvid sidebrik til feltet den står på plus 3 eller plus 4.
+            if (LigeRækker.Contains(picValgt) && BrikPos[picValgt] == 3)
+            {
+                if (nr == picValgt + 3 && BrikPos[nr] == 0 || nr == picValgt + 4 && BrikPos[nr] == 0)
+                {
+                    PictureBoxes[picValgt].Image = null;
+                    BrikPos[picValgt] = 0;
+                    PictureBoxes[nr].Image = whiteCircle;
+                    BrikPos[nr] = 1;
+                    Highlighted = false;
+                }
+            }
+            //Flytte sort sidebrik til feltet den står på minus 4 eller minus 5.
+            if (LigeRækker.Contains(picValgt) && BrikPos[picValgt] == 4)
             {
                 if (nr == picValgt - 4 && BrikPos[nr] == 0 || nr == picValgt - 5 && BrikPos[nr] == 0)
                 {
