@@ -131,7 +131,6 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "Placer brikker";
             this.button1.UseVisualStyleBackColor = true;
-            
             // 
             // pictureBox2
             // 
@@ -562,7 +561,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pictureBox0);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "x½";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox0)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

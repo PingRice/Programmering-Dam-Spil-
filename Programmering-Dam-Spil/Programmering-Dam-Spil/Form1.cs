@@ -17,6 +17,7 @@ namespace Programmering_Dam_Spil
         PictureBox[] PictureBoxes = new PictureBox[33];
         int[] BrikPos = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}; //0: tom | 1: hvid | 2: sort | 3: hvid HL | 4: sort HL | 5: hvid konge | 6: sort konge | 7: hvid konge HL | 8: sort konge HL
         int[] BoardSides = {5,13,21,29,4,12,20,28 }; 
+        
         bool Highlighted;
         int picValgt; //Husker den tallet på den picturebox der er highlighted. 
         public Form1()
@@ -121,8 +122,11 @@ namespace Programmering_Dam_Spil
                 if (nr == picValgt + 4 && BrikPos[nr] == 0)
                 {
                     PictureBoxes[picValgt].Image = null;
+                    BrikPos[picValgt] = 0;
                     PictureBoxes[nr].Image = whiteCircle;
+                    BrikPos[nr] = 1;
                     Highlighted = false;
+
                 }
             }
             //Flytte sort sidebrik til feltet den står på minus 4. 
@@ -131,31 +135,65 @@ namespace Programmering_Dam_Spil
                 if (nr == picValgt - 4 && BrikPos[nr] == 0)
                 {
                     PictureBoxes[picValgt].Image = null;
+                    BrikPos[picValgt] = 0;
                     PictureBoxes[nr].Image = blackCircle;
+                    BrikPos[nr] = 2;
                     Highlighted = false;
+                    
                 }
             }
             //FLYTTE IKKE-SIDEBRIKKER
+            //ULIGE RÆKKER
             //Flytte hvid sidebrik til feltet den står på plus 4 eller plus 5.
             if (!BoardSides.Contains(picValgt) && BrikPos[picValgt] == 3)
             {
                 if (nr == picValgt + 4 && BrikPos[nr] == 0 || nr == picValgt + 5 && BrikPos[nr] == 0)
                 {
                     PictureBoxes[picValgt].Image = null;
+                    BrikPos[picValgt] = 0;
                     PictureBoxes[nr].Image = whiteCircle;
+                    BrikPos[nr] = 1;
                     Highlighted = false;
                 }
             }
             //Flytte sort sidebrik til feltet den står på minus 4 eller minus 5.
-            if (!BoardSides.Contains(picValgt) && BrikPos[picValgt] == 3)
+            if (!BoardSides.Contains(picValgt) && BrikPos[picValgt] == 4)
             {
                 if (nr == picValgt - 4 && BrikPos[nr] == 0 || nr == picValgt - 5 && BrikPos[nr] == 0)
                 {
                     PictureBoxes[picValgt].Image = null;
+                    BrikPos[picValgt] = 0;
                     PictureBoxes[nr].Image = blackCircle;
+                    BrikPos[nr] = 2;
                     Highlighted = false;
                 }
             }
+            //LIGE RÆKKER 
+            //Flytte hvid sidebrik til feltet den står på plus 3 eller plus 4.
+            if (!BoardSides.Contains(picValgt) && BrikPos[picValgt] == 3)
+            {
+                if (nr == picValgt + 4 && BrikPos[nr] == 0 || nr == picValgt + 5 && BrikPos[nr] == 0)
+                {
+                    PictureBoxes[picValgt].Image = null;
+                    BrikPos[picValgt] = 0;
+                    PictureBoxes[nr].Image = whiteCircle;
+                    BrikPos[nr] = 1;
+                    Highlighted = false;
+                }
+            }
+            //Flytte sort sidebrik til feltet den står på minus 3 eller minus 4.
+            if (!BoardSides.Contains(picValgt) && BrikPos[picValgt] == 4)
+            {
+                if (nr == picValgt - 4 && BrikPos[nr] == 0 || nr == picValgt - 5 && BrikPos[nr] == 0)
+                {
+                    PictureBoxes[picValgt].Image = null;
+                    BrikPos[picValgt] = 0;
+                    PictureBoxes[nr].Image = blackCircle;
+                    BrikPos[nr] = 2;
+                    Highlighted = false;
+                }
+            }
+
         }
 
         
