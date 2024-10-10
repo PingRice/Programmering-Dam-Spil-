@@ -367,5 +367,15 @@ namespace Programmering_Dam_Spil
         {
             txtPicValgt.Text = picValgt.ToString();
         }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            placerBrikker();
+        }
     }
 }
