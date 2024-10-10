@@ -39,7 +39,7 @@ namespace Programmering_Dam_Spil
             Image blackCircle = Image.FromFile("black_circle_v2.png");
             Image hlBlackCircle = Image.FromFile("hl_black_circle_v2.png");
             Image hlWhiteCircle = Image.FromFile("hl_white_circle.png");
-
+            //Placerer hvide brikker
             for (int i = 1; i < 13; i++)
             {
                 PictureBoxes = Controls.OfType<PictureBox>()
@@ -51,7 +51,8 @@ namespace Programmering_Dam_Spil
                 BrikPos[i] = 1;
 
             }
-
+            
+            //Placerer sorte brikker 
             for (int i = 21; i < 33; i++)
             {
                 PictureBoxes = Controls.OfType<PictureBox>()
@@ -63,8 +64,21 @@ namespace Programmering_Dam_Spil
                 BrikPos[i] = 2;
 
             }
-        }
+            //Fjerner brikker i midten af spillebrættet 
+            for (int i = 13; i < 21; i++)
+            {
+                PictureBoxes = Controls.OfType<PictureBox>()
+                    .Where(p => p.Name.StartsWith("pictureBox"))
+                    .OrderBy(p => p.Name.Length)
+                    .ThenBy(propa => propa.Name)
+                    .ToArray();
+                PictureBoxes[i].Image = null;
+                BrikPos[i] = 0;
 
+
+            }
+        }
+        
         private void Pick(int nr)
         {
             //Denne metode ændrer billedet i en picturebox, alt efter hvilket tal der står på dets tilsvarende palds i arrayet Brikpos[]
