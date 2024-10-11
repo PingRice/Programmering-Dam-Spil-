@@ -70,6 +70,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtBox3 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox0)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -129,7 +130,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(895, 27);
+            this.button1.Location = new System.Drawing.Point(894, 39);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(137, 52);
             this.button1.TabIndex = 2;
@@ -547,11 +548,20 @@
             this.toolStripMenuItem2.Text = "Afslut";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
+            // txtBox3
+            // 
+            this.txtBox3.Location = new System.Drawing.Point(894, 596);
+            this.txtBox3.Multiline = true;
+            this.txtBox3.Name = "txtBox3";
+            this.txtBox3.Size = new System.Drawing.Size(242, 93);
+            this.txtBox3.TabIndex = 40;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1178, 841);
+            this.Controls.Add(this.txtBox3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtPicValgt);
@@ -679,6 +689,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.TextBox txtBox3;
     }
 }
 
