@@ -210,7 +210,7 @@ namespace Programmering_Dam_Spil
             }
 
         }
-        //HUSKE Ulige rækjkker plus 7, lige rækker plus 9
+        
         private void Hoppe(int nr)
         {
             //Tanken bag denne metode er at en brik skal kunne hoppe over en brik af modsat farve, men kun hvis der ikke allerede står en der man vil hoppe hen. 
@@ -218,7 +218,7 @@ namespace Programmering_Dam_Spil
             Image whiteCircle = Image.FromFile("white_circle.png");
             Image blackCircle = Image.FromFile("black_circle_v2.png");
             //FLYTTE SIDEBRIKKER
-            //Flytte hvid sidebrik til feltet den står på plus 9. 
+            //Flytte hvid sidebrik til feltet den står på plus 7 eller 9. 
             if (BrikPos[picValgt] == 3 && BoardSides.Contains(picValgt) && UligeRækker.Contains(picValgt))
             {
                 if (nr == picValgt + 7 && BrikPos[nr] == 0)
@@ -229,7 +229,7 @@ namespace Programmering_Dam_Spil
                     BrikPos[nr] = 1;
                     Highlighted = false;
                     fjernBrik = "sideHvidBrikSyv";
-                    FjerneBrik(nr);
+                    FjerneBrik(fjernBrik);
                 }
             }
             if (BrikPos[picValgt] == 3 && BoardSides.Contains(picValgt) && LigeRækker.Contains(picValgt))
@@ -242,10 +242,10 @@ namespace Programmering_Dam_Spil
                     BrikPos[nr] = 1;
                     Highlighted = false;
                     fjernBrik = "sideHvidBrikNi";
-                    FjerneBrik(nr);
+                    FjerneBrik(fjernBrik);
                 }
             }
-            //Flytte sort sidebrik til feltet den står på minus 9. 
+            //Flytte sort sidebrik til feltet den står på minus 7 eller 9. 
             if (BrikPos[picValgt] == 4 && BoardSides.Contains(picValgt) && UligeRækker.Contains(picValgt))
             {
                 if (nr == picValgt - 7 && BrikPos[nr] == 0)
@@ -256,7 +256,7 @@ namespace Programmering_Dam_Spil
                     BrikPos[nr] = 2;
                     Highlighted = false;
                     fjernBrik = "sideSortBrikSyv";
-                    FjerneBrik(nr);
+                    FjerneBrik(fjernBrik);
                 }
             }
             if (BrikPos[picValgt] == 4 && BoardSides.Contains(picValgt) && LigeRækker.Contains(picValgt))
@@ -269,7 +269,7 @@ namespace Programmering_Dam_Spil
                     BrikPos[nr] = 2;
                     Highlighted = false;
                     fjernBrik = "sideSortBrikNi";
-                    FjerneBrik(nr);
+                    FjerneBrik(fjernBrik);
                 }
             }
             //FLYTTE IKKE-SIDEBRIKKER
@@ -284,8 +284,8 @@ namespace Programmering_Dam_Spil
                     PictureBoxes[nr].Image = whiteCircle;
                     BrikPos[nr] = 1;
                     Highlighted = false;
-                    fjernBrik = "uligeHvidBrikNi";
-                    FjerneBrik(nr);
+                    fjernBrik = "uligeHvidBrikSyv";
+                    FjerneBrik(fjernBrik);
                 }
                 if (nr == picValgt + 9 && BrikPos[nr] == 0)
                 {
@@ -295,11 +295,11 @@ namespace Programmering_Dam_Spil
                     BrikPos[nr] = 1;
                     Highlighted = false;
                     fjernBrik = "uligeHvidBrikNi";
-                    FjerneBrik(nr);
+                    FjerneBrik(fjernBrik);
                 }
             }
             //Flytte ulige sort brik til feltet den står på minus 7 eller minus 9.
-            if (BrikPos[picValgt] == 4)
+            if (BrikPos[picValgt] == 4 && UligeRækker.Contains(picValgt))
             {
                 if (nr == picValgt - 7 && BrikPos[nr] == 0)
                 {
@@ -309,7 +309,7 @@ namespace Programmering_Dam_Spil
                     BrikPos[nr] = 2;
                     Highlighted = false;
                     fjernBrik = "uligeSortBrikSyv";
-                    FjerneBrik(nr);
+                    FjerneBrik(fjernBrik);
                 }
                 if (nr == picValgt - 9 && BrikPos[nr] == 0)
                 {
@@ -319,7 +319,7 @@ namespace Programmering_Dam_Spil
                     BrikPos[nr] = 2;
                     Highlighted = false;
                     fjernBrik = "uligeSortBrikNi";
-                    FjerneBrik(nr);
+                    FjerneBrik(fjernBrik);
                 }
             } 
             //LIGE RÆKKER 
@@ -334,7 +334,7 @@ namespace Programmering_Dam_Spil
                     BrikPos[nr] = 1;
                     Highlighted = false;
                     fjernBrik = "ligeHvidBrikSyv";
-                    FjerneBrik(nr);
+                    FjerneBrik(fjernBrik);
                 }
                 if (nr == picValgt + 9 && BrikPos[nr] == 0)
                 {
@@ -344,7 +344,7 @@ namespace Programmering_Dam_Spil
                     BrikPos[nr] = 1;
                     Highlighted = false;
                     fjernBrik = "ligeHvidBrikNi";
-                    FjerneBrik(nr);
+                    FjerneBrik(fjernBrik);
                 }
             }
             //Flytte lige sort brik til feltet den står på minus 7 eller minus 9.
@@ -358,7 +358,7 @@ namespace Programmering_Dam_Spil
                     BrikPos[nr] = 2;
                     Highlighted = false;
                     fjernBrik = "ligeSortBrikSyv";
-                    FjerneBrik(nr);
+                    FjerneBrik(fjernBrik);
                 }
                 if (nr == picValgt - 9 && BrikPos[nr] == 0)
                 {
@@ -368,20 +368,19 @@ namespace Programmering_Dam_Spil
                     BrikPos[nr] = 2;
                     Highlighted = false;
                     fjernBrik = "ligeSortBrikNi";
-                    FjerneBrik(nr);
-                    
+                    FjerneBrik(fjernBrik);
                 }
             }
             txtBox3.Text = fjernBrik;
         }
 
-        private void FjerneBrik(int nr)
+        private void FjerneBrik(string fjernBrik)
         {
             //Side brikker
             if (fjernBrik == "sideHvidBrikSyv")
             {
                 PictureBoxes[picValgt + 4].Image = null;
-                BrikPos[picValgt +4] = 1;
+                BrikPos[picValgt +4] = 0;
                 fjernBrik = "";
             }
             if (fjernBrik == "sideHvidBrikNi")
@@ -442,14 +441,14 @@ namespace Programmering_Dam_Spil
             }
             if (fjernBrik == "ligeSortBrikSyv")
             {
-                PictureBoxes[picValgt - 3].Image = null;
-                BrikPos[picValgt - 3] = 0;
+                PictureBoxes[picValgt - 4].Image = null;
+                BrikPos[picValgt - 4] = 0;
                 fjernBrik = "";
             }
             if (fjernBrik == "ligeSortBrikNi")
             {
-                PictureBoxes[picValgt - 4].Image = null;
-                BrikPos[picValgt - 4] = 0;
+                PictureBoxes[picValgt - 5].Image = null;
+                BrikPos[picValgt - 5] = 0;
                 fjernBrik = "";
             }
         }
