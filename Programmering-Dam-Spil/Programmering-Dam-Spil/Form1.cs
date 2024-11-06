@@ -501,7 +501,7 @@ private void Pick(int nr)
                     PictureBoxes[nr].Image = blackCircle;
                     BrikPos[nr] = 2;
                     Highlighted = false;
-                    fjernBrik = "UligeSortMidteNi";
+                    fjernBrik = "LigeSortMidteNi";
                     FjerneBrik(fjernBrik);
                 }
                 //Ulige 
@@ -513,7 +513,7 @@ private void Pick(int nr)
                         PictureBoxes[nr].Image = blackCircle;
                         BrikPos[nr] = 2;
                         Highlighted = false;
-                        fjernBrik = "LigeSortMidteSyv";
+                        fjernBrik = "UligeSortMidteSyv";
                         FjerneBrik(fjernBrik);
                     }
                     if (nr == picValgt - 9 && BrikPos[nr] == 0 && UligeRækker.Contains(picValgt) && BrikPos[picValgt - 4] == 1)
@@ -799,12 +799,6 @@ private void Pick(int nr)
         {
             Pick(32);
         }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            txtPicValgt.Text = picValgt.ToString();
-        }
-
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -814,5 +808,7 @@ private void Pick(int nr)
         {
             placerBrikker();
         }
+
+        
     }
 }
