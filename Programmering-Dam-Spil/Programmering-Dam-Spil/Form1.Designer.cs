@@ -70,6 +70,10 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.txtBox3 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.playerTurn = new System.Windows.Forms.TextBox();
+            this.pictureBox33 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox0)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -104,6 +108,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox31)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox33)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox0
@@ -470,7 +475,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(893, 159);
+            this.textBox1.Location = new System.Drawing.Point(858, 461);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(203, 176);
@@ -479,7 +484,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(893, 133);
+            this.label1.Location = new System.Drawing.Point(860, 438);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(107, 20);
             this.label1.TabIndex = 36;
@@ -487,7 +492,7 @@
             // 
             // txtPicValgt
             // 
-            this.txtPicValgt.Location = new System.Drawing.Point(894, 93);
+            this.txtPicValgt.Location = new System.Drawing.Point(858, 409);
             this.txtPicValgt.Name = "txtPicValgt";
             this.txtPicValgt.Size = new System.Drawing.Size(100, 26);
             this.txtPicValgt.TabIndex = 37;
@@ -495,7 +500,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(893, 70);
+            this.label2.Location = new System.Drawing.Point(854, 386);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(87, 20);
             this.label2.TabIndex = 38;
@@ -510,7 +515,7 @@
             this.toolStripMenuItem2});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1178, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(1084, 33);
             this.menuStrip1.TabIndex = 34;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -530,26 +535,65 @@
             // 
             // txtBox3
             // 
-            this.txtBox3.Location = new System.Drawing.Point(893, 384);
+            this.txtBox3.Location = new System.Drawing.Point(858, 665);
             this.txtBox3.Multiline = true;
             this.txtBox3.Name = "txtBox3";
-            this.txtBox3.Size = new System.Drawing.Size(242, 93);
+            this.txtBox3.Size = new System.Drawing.Size(203, 93);
             this.txtBox3.TabIndex = 40;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(893, 358);
+            this.label3.Location = new System.Drawing.Point(854, 640);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(113, 20);
             this.label3.TabIndex = 41;
             this.label3.Text = "String fjernBrik";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(852, 356);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(123, 20);
+            this.label4.TabIndex = 42;
+            this.label4.Text = "Troubleshooting";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(817, 42);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(88, 20);
+            this.label5.TabIndex = 43;
+            this.label5.Text = "Player Turn";
+            // 
+            // playerTurn
+            // 
+            this.playerTurn.Location = new System.Drawing.Point(908, 39);
+            this.playerTurn.Name = "playerTurn";
+            this.playerTurn.Size = new System.Drawing.Size(100, 26);
+            this.playerTurn.TabIndex = 44;
+            // 
+            // pictureBox33
+            // 
+            this.pictureBox33.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.pictureBox33.Location = new System.Drawing.Point(818, 68);
+            this.pictureBox33.Name = "pictureBox33";
+            this.pictureBox33.Size = new System.Drawing.Size(243, 251);
+            this.pictureBox33.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox33.TabIndex = 45;
+            this.pictureBox33.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1178, 841);
+            this.ClientSize = new System.Drawing.Size(1084, 841);
+            this.Controls.Add(this.pictureBox33);
+            this.Controls.Add(this.playerTurn);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtBox3);
             this.Controls.Add(this.label2);
@@ -628,6 +672,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox33)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -677,6 +722,10 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.TextBox txtBox3;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox playerTurn;
+        private System.Windows.Forms.PictureBox pictureBox33;
     }
 }
 

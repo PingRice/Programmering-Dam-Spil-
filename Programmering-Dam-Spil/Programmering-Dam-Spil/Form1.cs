@@ -24,7 +24,7 @@ namespace Programmering_Dam_Spil
         bool Highlighted;
         int picValgt; //Husker den tallet på den picturebox der er highlighted. 
         string fjernBrik; //String der skal definere hvilken brik der skal fjernes, efter et hop. 
-        bool turn = true;
+        bool turn = false;
         public Form1()
         {
             InitializeComponent();
@@ -34,7 +34,7 @@ namespace Programmering_Dam_Spil
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            skift();
         }
         
         private void placerBrikker()
@@ -84,16 +84,24 @@ namespace Programmering_Dam_Spil
         }
         
         private void skift()
-{
-    if (turn == false)
-    {
-        turn = true;
-    }
-    else
-    {
-        turn = false;
-    }
-}
+        {
+            Image whiteCircle = Image.FromFile("white_circle.png");
+            Image blackCircle = Image.FromFile("black_circle_v2.png");
+            if (turn == false)
+            {
+                turn = true;
+                playerTurn.Text = "Hvid";
+                pictureBox33.Image = whiteCircle;
+
+            }
+            else
+            {
+                turn = false;
+                playerTurn.Text = "Sort";
+                pictureBox33.Image = blackCircle;
+                
+            }
+        }
 
 private void Pick(int nr)
 {
@@ -117,7 +125,7 @@ private void Pick(int nr)
             Highlighted = true;
             picValgt = nr;
             txtPicValgt.Text = picValgt.ToString();
-            skift();
+            
         }
     } else if (BrikPos[nr] == 2 && Highlighted == false)
     {
@@ -128,20 +136,20 @@ private void Pick(int nr)
             Highlighted = true;
             picValgt = nr;
             txtPicValgt.Text = picValgt.ToString();
-            skift();
+            
         }
     } else if (BrikPos[nr] == 3)
     {
         BrikPos[nr] -= 2;
         PictureBoxes[nr].Image = whiteCircle;
         Highlighted = false;
-        skift();
+        //skift();
     } else if (BrikPos[nr] == 4)
     {
         BrikPos[nr] -= 2;
         PictureBoxes[nr].Image = blackCircle;
         Highlighted = false;
-        skift();
+        //skift();
     }
 
             //TROUBLESHOOTING: Skriver talværdier i array Brikpos[] ind i tekstboks
@@ -168,6 +176,7 @@ private void Pick(int nr)
                     PictureBoxes[nr].Image = whiteCircle;
                     BrikPos[nr] = 1;
                     Highlighted = false;
+                    skift();
                 }
                 if (nr == picValgt + 4 && BrikPos[nr] == 0 && UligeRækker.Contains(picValgt))
                 {
@@ -176,6 +185,7 @@ private void Pick(int nr)
                     PictureBoxes[nr].Image = whiteCircle;
                     BrikPos[nr] = 1;
                     Highlighted = false;
+                    skift();
                 }
                 if (nr == picValgt + 5 && BrikPos[nr] == 0 && UligeRækker.Contains(picValgt))
                 {
@@ -184,6 +194,7 @@ private void Pick(int nr)
                     PictureBoxes[nr].Image = whiteCircle;
                     BrikPos[nr] = 1;
                     Highlighted = false;
+                    skift();
                 }
             }
             //Flytte sort VenstreSidebrik
@@ -196,6 +207,7 @@ private void Pick(int nr)
                     PictureBoxes[nr].Image = blackCircle;
                     BrikPos[nr] = 2;
                     Highlighted = false;
+                    skift();
                 }
                 if (nr == picValgt - 3 && BrikPos[nr] == 0 && UligeRækker.Contains(picValgt))
                 {
@@ -204,6 +216,7 @@ private void Pick(int nr)
                     PictureBoxes[nr].Image = blackCircle;
                     BrikPos[nr] = 2;
                     Highlighted = false;
+                    skift();
                 }
                 if (nr == picValgt - 4 && BrikPos[nr] == 0 && UligeRækker.Contains(picValgt))
                 {
@@ -212,6 +225,7 @@ private void Pick(int nr)
                     PictureBoxes[nr].Image = blackCircle;
                     BrikPos[nr] = 2;
                     Highlighted = false;
+                    skift();
                 }
             }
             //FLYTTE HØJRESIDEBRIKKER
@@ -225,6 +239,7 @@ private void Pick(int nr)
                     PictureBoxes[nr].Image = whiteCircle;
                     BrikPos[nr] = 1;
                     Highlighted = false;
+                    skift();
                 }
                 if (nr == picValgt + 3 && BrikPos[nr] == 0 && LigeRækker.Contains(picValgt))
                 {
@@ -233,6 +248,7 @@ private void Pick(int nr)
                     PictureBoxes[nr].Image = whiteCircle;
                     BrikPos[nr] = 1;
                     Highlighted = false;
+                    skift();
                 }
                 if (nr == picValgt + 4 && BrikPos[nr] == 0 && LigeRækker.Contains(picValgt))
                 {
@@ -241,6 +257,7 @@ private void Pick(int nr)
                     PictureBoxes[nr].Image = whiteCircle;
                     BrikPos[nr] = 1;
                     Highlighted = false;
+                    skift();
                 }
             }
             //Flytte sort HøjreSidebrik 
@@ -253,6 +270,7 @@ private void Pick(int nr)
                     PictureBoxes[nr].Image = blackCircle;
                     BrikPos[nr] = 2;
                     Highlighted = false;
+                    skift();
                 }
                 if (nr == picValgt - 4 && BrikPos[nr] == 0 && LigeRækker.Contains(picValgt))
                 {
@@ -261,6 +279,7 @@ private void Pick(int nr)
                     PictureBoxes[nr].Image = blackCircle;
                     BrikPos[nr] = 2;
                     Highlighted = false;
+                    skift();
                 }
                 if (nr == picValgt - 5 && BrikPos[nr] == 0 && LigeRækker.Contains(picValgt))
                 {
@@ -269,6 +288,7 @@ private void Pick(int nr)
                     PictureBoxes[nr].Image = blackCircle;
                     BrikPos[nr] = 2;
                     Highlighted = false;
+                    skift();
                 }
             }
             //FLYTTE IKKE-SIDEBRIKKER (MidteRækker)
@@ -283,6 +303,7 @@ private void Pick(int nr)
                     PictureBoxes[nr].Image = whiteCircle;
                     BrikPos[nr] = 1;
                     Highlighted = false;
+                    skift();
                 }
             }
             //Flytte ulige sort brik til feltet den står på minus 3 eller minus 4.
@@ -295,6 +316,7 @@ private void Pick(int nr)
                     PictureBoxes[nr].Image = blackCircle;
                     BrikPos[nr] = 2;
                     Highlighted = false;
+                    skift();
                 }
             }
             //LIGE RÆKKER 
@@ -308,6 +330,7 @@ private void Pick(int nr)
                     PictureBoxes[nr].Image = whiteCircle;
                     BrikPos[nr] = 1;
                     Highlighted = false;
+                    skift();
                 }
             }
             //Flytte lige sort brik til feltet den står på minus 4 eller minus 5.
@@ -320,12 +343,13 @@ private void Pick(int nr)
                     PictureBoxes[nr].Image = blackCircle;
                     BrikPos[nr] = 2;
                     Highlighted = false;
+                    skift();
                 }
             }
 
         }
-        
-        
+
+
         private void Hoppe(int nr)
         {
             //Tanken bag denne metode er at en brik skal kunne hoppe over en brik af modsat farve, men kun hvis der ikke allerede står en der man vil hoppe hen. 
@@ -345,6 +369,7 @@ private void Pick(int nr)
                     Highlighted = false;
                     fjernBrik = "LigeHvidVenstreBS";
                     FjerneBrik(fjernBrik);
+                    skift();
                 }
                 if (nr == picValgt + 9 && BrikPos[nr] == 0 && UligeRækker.Contains(picValgt) && BrikPos[picValgt + 5] == 2)
                 {
@@ -355,10 +380,8 @@ private void Pick(int nr)
                     Highlighted = false;
                     fjernBrik = "UligeHvidVenstreBS";
                     FjerneBrik(fjernBrik);
+                    skift();
                 }
-
-
-
             }
             //Flytte hvid HøjreSidebrik til feltet den står på plus 7. 
             if (BrikPos[picValgt] == 3 && HøjreBS.Contains(picValgt))
@@ -372,6 +395,7 @@ private void Pick(int nr)
                     Highlighted = false;
                     fjernBrik = "LigeHvidHøjreBS";
                     FjerneBrik(fjernBrik);
+                    skift();
                 }
                 if (nr == picValgt + 7 && BrikPos[nr] == 0 && UligeRækker.Contains(picValgt) && BrikPos[picValgt + 4] == 2)
                 {
@@ -382,6 +406,7 @@ private void Pick(int nr)
                     Highlighted = false;
                     fjernBrik = "UligeHvidHøjreBS";
                     FjerneBrik(fjernBrik);
+                    skift();
                 }
             }
             //Flytte sort sidebrik til feltet den står på minus 7 eller 9. 
@@ -396,6 +421,7 @@ private void Pick(int nr)
                     Highlighted = false;
                     fjernBrik = "LigeSortVenstreBS";
                     FjerneBrik(fjernBrik);
+                    skift();
                 }
                 if (nr == picValgt - 7 && BrikPos[nr] == 0 && UligeRækker.Contains(picValgt) && BrikPos[picValgt - 3] == 1)
                 {
@@ -406,6 +432,7 @@ private void Pick(int nr)
                     Highlighted = false;
                     fjernBrik = "UligeSortVenstreBS";
                     FjerneBrik(fjernBrik);
+                    skift();
                 }
             }
             if (BrikPos[picValgt] == 4 && HøjreBS.Contains(picValgt))
@@ -419,6 +446,7 @@ private void Pick(int nr)
                     Highlighted = false;
                     fjernBrik = "LigeSortHøjreBS";
                     FjerneBrik(fjernBrik);
+                    skift();
                 }
                 if (nr == picValgt - 9 && BrikPos[nr] == 0 && UligeRækker.Contains(picValgt) && BrikPos[picValgt - 4] == 1)
                 {
@@ -429,6 +457,7 @@ private void Pick(int nr)
                     Highlighted = false;
                     fjernBrik = "UligeSortHøjreBS";
                     FjerneBrik(fjernBrik);
+                    skift();
                 }
             }
             
@@ -446,6 +475,7 @@ private void Pick(int nr)
                     Highlighted = false;
                     fjernBrik = "LigeHvidMidteSyv";
                     FjerneBrik(fjernBrik);
+                    skift();
                 }
                 if (nr == picValgt + 9 && BrikPos[nr] == 0 && LigeRækker.Contains(picValgt) && BrikPos[picValgt + 4] == 2)
                 {
@@ -457,6 +487,7 @@ private void Pick(int nr)
                     if (LigeRækker.Contains(picValgt))
                     fjernBrik = "LigeHvidMidteNi";
                     FjerneBrik(fjernBrik);
+                    skift();
                 }
                 //Ulige 
                 if (nr == picValgt + 7 && BrikPos[nr] == 0 && UligeRækker.Contains(picValgt) && BrikPos[picValgt + 4] == 2)
@@ -468,6 +499,7 @@ private void Pick(int nr)
                     Highlighted = false;
                     fjernBrik = "UligeHvidMidteSyv";
                     FjerneBrik(fjernBrik);
+                    skift();
                 }
                 if (nr == picValgt + 9 && BrikPos[nr] == 0 && UligeRækker.Contains(picValgt) && BrikPos[picValgt + 5] == 2)
                 {
@@ -478,6 +510,7 @@ private void Pick(int nr)
                     Highlighted = false;
                     fjernBrik = "UligeHvidMidteNi";
                     FjerneBrik(fjernBrik);
+                    skift();
                 }
             }
             //Flytte sort MidteBrik til feltet den står på minus 7 eller minus 9.
@@ -493,6 +526,7 @@ private void Pick(int nr)
                     Highlighted = false;
                     fjernBrik = "LigeSortMidteSyv";
                     FjerneBrik(fjernBrik);
+                    skift();
                 }
                 if (nr == picValgt - 9 && BrikPos[nr] == 0 && LigeRækker.Contains(picValgt) && BrikPos[picValgt - 5] == 1)
                 {
@@ -503,6 +537,7 @@ private void Pick(int nr)
                     Highlighted = false;
                     fjernBrik = "LigeSortMidteNi";
                     FjerneBrik(fjernBrik);
+                    skift();
                 }
                 //Ulige 
                 {
@@ -515,6 +550,7 @@ private void Pick(int nr)
                         Highlighted = false;
                         fjernBrik = "UligeSortMidteSyv";
                         FjerneBrik(fjernBrik);
+                        skift();
                     }
                     if (nr == picValgt - 9 && BrikPos[nr] == 0 && UligeRækker.Contains(picValgt) && BrikPos[picValgt - 4] == 1)
                     {
@@ -525,6 +561,7 @@ private void Pick(int nr)
                         Highlighted = false;
                         fjernBrik = "UligeSortMidteNi";
                         FjerneBrik(fjernBrik);
+                        skift();
                     }
                 }
             }
